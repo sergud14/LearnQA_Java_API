@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -11,9 +12,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.HashMap;
 import java.util.Map;;
 import lib.Assertions;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import lib.ApiCoreRequests;
 
@@ -26,6 +24,8 @@ public class UserAuthTest extends BaseTestCase {
     int userIdOnAuth;
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
     @BeforeEach
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
     public void loginUser()
     {
         Map<String,String> authData= new HashMap<>();

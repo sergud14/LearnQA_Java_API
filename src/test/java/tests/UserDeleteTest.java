@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -9,9 +10,16 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+@Epic("Deletion cases")
+@Feature("Deletion")
 public class UserDeleteTest extends BaseTestCase {
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
+
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0001")
+    @TmsLink(value="TMS-0001")
     public void testDeleteUserWithId2Test() {
         //Login
         Map<String,String> userData = new HashMap<>();
@@ -31,6 +39,10 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0002")
+    @TmsLink(value="TMS-0002")
     public void testDeleteCreatedUserSuccessfully() {
         //Generate User1
         Map<String,String> userData1 = DataGenerator.getRegistrationData();
@@ -61,6 +73,10 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.NORMAL)
+    @Issue(value="Test-0003")
+    @TmsLink(value="TMS-0003")
     public void testDeleteCreatedUserNegative() {
         //Generate User1
         Map<String,String> userData1 = DataGenerator.getRegistrationData();

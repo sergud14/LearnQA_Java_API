@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -10,10 +11,16 @@ import java.util.HashMap;
 import java.util.Map;;
 import lib.Assertions;
 
+@Epic("Edition cases")
+@Feature("Edition")
 public class UserEditTest extends BaseTestCase {
 
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0005")
+    @TmsLink(value="TMS-0005")
     public void testEditJustCreatedTest() {
         //Generate user
 
@@ -65,6 +72,10 @@ public class UserEditTest extends BaseTestCase {
 
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0006")
+    @TmsLink(value="TMS-0006")
     public void testEditJustCreatedTestWithoutAuth() {
         //Generate user
         Map<String,String> userData = DataGenerator.getRegistrationData();
@@ -102,6 +113,10 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0007")
+    @TmsLink(value="TMS-0007")
     public void testEditJustCreatedTestWithAnotherUserAuth() {
         //Generate User1
         Map<String,String> userData = DataGenerator.getRegistrationData();
@@ -148,6 +163,10 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0008")
+    @TmsLink(value="TMS-0008")
     public void testEditJustCreatedTestWithWrongEmail() {
         //Generate user
         Map<String,String> userData = DataGenerator.getRegistrationData();
@@ -190,6 +209,10 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0009")
+    @TmsLink(value="TMS-0009")
     public void testEditJustCreatedTestWithTooShortName() {
         //Generate user
         Map<String,String> userData = DataGenerator.getRegistrationData();

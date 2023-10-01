@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
@@ -8,10 +9,17 @@ import java.util.HashMap;
 import java.util.Map;;
 import lib.Assertions;
 
+
+@Epic("Get cases")
+@Feature("Get")
 public class UserGetTest extends BaseTestCase {
 
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0010")
+    @TmsLink(value="TMS-0010")
     public void testGetUserDataNotAuth() {
         Response repsonseUserData = RestAssured
                 .get("https://playground.learnqa.ru/api/user/2")
@@ -24,6 +32,10 @@ public class UserGetTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0011")
+    @TmsLink(value="TMS-0011")
     public void testGetUserDetailsAuthAsSameUser() {
         Map<String,String> authData= new HashMap<>();
         authData.put("email","vinkotov@example.com");
@@ -51,6 +63,10 @@ public class UserGetTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0012")
+    @TmsLink(value="TMS-0012")
     public void testGetUserDetailsAuthAsOtherUser() {
         Map<String,String> authData= new HashMap<>();
         authData.put("email","vinkotov@example.com");

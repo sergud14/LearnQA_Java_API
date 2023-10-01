@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -20,12 +21,18 @@ import io.restassured.RestAssured;
 import java.util.Objects;
 import lib.ApiCoreRequests;
 import lib.DataGenerator;
+
+@Epic("Register cases")
+@Feature("Register")
 public class UserRegisterTest extends BaseTestCase {
 
     private final ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
 
-
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0013")
+    @TmsLink(value="TMS-0013")
     public void testCreateUserWithExistingEmail() {
 
         String email = "vinkotov@example.com";
@@ -44,6 +51,10 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0014")
+    @TmsLink(value="TMS-0014")
     public void testCreateUserSuccessfully() {
         String email = DataGenerator.getRandomEmail();
         Map<String,String> userData= DataGenerator.getRegistrationData();
@@ -60,6 +71,10 @@ public class UserRegisterTest extends BaseTestCase {
 
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0015")
+    @TmsLink(value="TMS-0015")
     public void testCreateUserWithIncorrectEmail() {
         Map<String,String> userData= DataGenerator.getRegistrationDataWithIncorrectEmail();
 
@@ -72,6 +87,10 @@ public class UserRegisterTest extends BaseTestCase {
 
 
     @ParameterizedTest
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0016")
+    @TmsLink(value="TMS-0016")
     @ValueSource (strings={"username","firstName","lastName","email","password"})
     public void testCreateUserWithEmptyField(String condition) {
 
@@ -107,6 +126,10 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0017")
+    @TmsLink(value="TMS-0017")
     public void testCreateUserWithTooShortUsername() {
         Map<String,String> userData= DataGenerator.getRegistrationData();
         userData.put("username","q");
@@ -119,6 +142,10 @@ public class UserRegisterTest extends BaseTestCase {
     }
 
     @Test
+    @Owner(value="Иванов И.И.")
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Issue(value="Test-0018")
+    @TmsLink(value="TMS-0018")
     public void testCreateUserWithTooLongUsername() {
         Map<String,String> userData= DataGenerator.getRegistrationData();
         userData.put("username","qwertyuiopadszdxfcghjkghgfbvczxczvbnmbfdsaffgtjrytrsesfdvbxgcfgxadfzvsvgfdfgcasdfasdfsdfghyfhjtyhgfgbdsgdsfgsdfgsdgfgssdfgdfgdfgdfgdgdfgdgdfgdgfdghjjkkjtertefsddfdsgjkjkukykyukukutikikiikkikikikikikikikiyjrdhsfdsfgsdghdfghdfghsdfgarttruhgfbgdsghjgmfjhkgfhgdfs");
