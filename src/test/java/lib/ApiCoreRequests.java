@@ -9,6 +9,14 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class ApiCoreRequests {
+    @Step("Make a GET-request without token and auth cookie")
+    public Response makeGetRequestWithoutTokenAndCookie(String url) {
+        return given()
+                .filter(new AllureRestAssured())
+                .get(url)
+                .andReturn();
+    }
+
     @Step("Make a GET-request with token and auth cookie")
     public Response makeGetRequest(String url,String token,String cookie) {
          return given()
@@ -62,6 +70,16 @@ public class ApiCoreRequests {
                 .filter(new AllureRestAssured())
                 .body(editData)
                 .put(url)
+                .andReturn();
+    }
+
+    @Step("Make a DELETE-request")
+    public Response makeDeleteRequest(String url, String token,String cookie) {
+        return given()
+                .filter(new AllureRestAssured())
+                .header(new Header("x-csrf-token",token))
+                .cookie("auth_sid",cookie)
+                .delete(url)
                 .andReturn();
     }
 
